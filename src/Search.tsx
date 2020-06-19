@@ -17,11 +17,12 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
-import InputBase from '@material-ui/core/InputBase';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import PhoneIcon from '@material-ui/icons/Phone';
 import InfoIcon from '@material-ui/icons/Info';
+import SearchIcon from '@material-ui/icons/Search';
+import InputBase from '@material-ui/core/InputBase';
+
 
 
 const drawerWidth = 240;
@@ -31,6 +32,9 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       display: 'flex',
     },
+    menuItemIcon: {
+        color: '#00cae9',
+      },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
       transition: theme.transitions.create(['width', 'margin'], {
@@ -200,12 +204,40 @@ export default function MiniDrawer() {
         </div>
         <Divider />
         <List>
-          {['Home', 'Phone', 'Contact', 'About'].map((text, index) => (
+          {/* {['Home', 'Phone', 'Contact', 'About'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <HomeIcon /> : <InfoIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 4 === 0 ? <HomeIcon />: <InfoIcon /> : <PhoneIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+
+          ))} */}
+          <ListItem button>
+        <ListItemIcon className={classes.menuItemIcon}>
+          <HomeIcon />
+        </ListItemIcon>
+        <ListItemText primary="Home" />
+      </ListItem>
+
+      <ListItem button>
+        <ListItemIcon className={classes.menuItemIcon}>
+        <PhoneIcon />
+        </ListItemIcon>
+        <ListItemText primary="Phone" />
+      </ListItem>
+
+      <ListItem button>
+        <ListItemIcon className={classes.menuItemIcon}>
+          <ContactsIcon />
+        </ListItemIcon>
+        <ListItemText primary="Contact" />
+      </ListItem>
+
+      <ListItem button>
+        <ListItemIcon className={classes.menuItemIcon}>
+          <InfoIcon />
+        </ListItemIcon>
+        <ListItemText primary="About" />
+      </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>
