@@ -1,7 +1,10 @@
 import React from 'react';
 import clsx from 'clsx';
 import App from './App';
-import { createStyles, fade, makeStyles, useTheme, Theme } from '@material-ui/core/styles';
+import Phone from './Phone';
+import Contact from './Contact';
+import About from './About';
+import {withStyles, WithStyles ,createStyles, fade, makeStyles, useTheme, Theme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -16,12 +19,22 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
-import ContactsIcon from '@material-ui/icons/Contacts';
-import PhoneIcon from '@material-ui/icons/Phone';
-import InfoIcon from '@material-ui/icons/Info';
+
+
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
+import Modal from '@material-ui/core/Modal';
+import {
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle
+} from "@material-ui/core";
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
 
 
 
@@ -42,6 +55,12 @@ const useStyles = makeStyles((theme: Theme) =>
         duration: theme.transitions.duration.leavingScreen,
       }),
     },
+      paper: {
+        backgroundColor: theme.palette.background.paper,
+        border: '2px solid #000',
+        boxShadow: theme.shadows[5],
+        padding: theme.spacing(2, 4, 3),
+      },
     appBarShift: {
       marginLeft: drawerWidth,
       width: `calc(100% - ${drawerWidth}px)`,
@@ -143,7 +162,11 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -211,33 +234,12 @@ export default function MiniDrawer() {
             </ListItem>
 
           ))} */}
-          <ListItem button>
-        <ListItemIcon className={classes.menuItemIcon}>
-          <HomeIcon />
-        </ListItemIcon>
-        <ListItemText primary="Home" />
-      </ListItem>
 
-      <ListItem button>
-        <ListItemIcon className={classes.menuItemIcon}>
-        <PhoneIcon />
-        </ListItemIcon>
-        <ListItemText primary="Phone" />
-      </ListItem>
+      
+            <Phone/>
+            <Contact />
+            <About />
 
-      <ListItem button>
-        <ListItemIcon className={classes.menuItemIcon}>
-          <ContactsIcon />
-        </ListItemIcon>
-        <ListItemText primary="Contact" />
-      </ListItem>
-
-      <ListItem button>
-        <ListItemIcon className={classes.menuItemIcon}>
-          <InfoIcon />
-        </ListItemIcon>
-        <ListItemText primary="About" />
-      </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>
