@@ -21,7 +21,7 @@ const styles = (theme: Theme) =>
       padding: theme.spacing(2),
     },
     menuItemIcon: {
-        color: '#00cae9',
+        color: '#ffffff',
       },
     closeButton: {
       position: 'absolute',
@@ -77,8 +77,8 @@ export default function CustomizedDialogs() {
   return (
     <div>
       <ListItem button onClick={handleClickOpen}>
-        <ListItemIcon>
-        <PhoneIcon  />  
+        <ListItemIcon> 
+        <PhoneIcon  color='secondary'/>  
         </ListItemIcon>
         <ListItemText primary="Phone" />
       </ListItem>

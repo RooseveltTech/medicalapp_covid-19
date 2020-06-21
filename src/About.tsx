@@ -78,7 +78,7 @@ export default function CustomizedDialogs() {
     <div>
       <ListItem button onClick={handleClickOpen}>
         <ListItemIcon>
-        <InfoIcon  />  
+        <InfoIcon color='secondary' />  
         </ListItemIcon>
         <ListItemText primary="About" />
       </ListItem>
@@ -88,11 +88,12 @@ export default function CustomizedDialogs() {
         </DialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
-            I am Abandy Roosevelt, a computer science student from the University of Benin.
+            I am Abandy Roosevelt, a final year student from the University of Benin and Computer science is my major.
+            I love solving problems with relevant technology in which i am open minded to learning. Do well to contact me 
+            for more enquiry. Thank you ):.
+
           </Typography>
-          <Typography gutterBottom>
-            Phone: 08168187776
-          </Typography>
+
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose} color="primary">

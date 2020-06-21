@@ -16,27 +16,9 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-
-
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
-import Modal from '@material-ui/core/Modal';
-import {
-  Button,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle
-} from "@material-ui/core";
-import Dialog from '@material-ui/core/Dialog';
-import MuiDialogTitle from '@material-ui/core/DialogTitle';
-import MuiDialogContent from '@material-ui/core/DialogContent';
-import MuiDialogActions from '@material-ui/core/DialogActions';
-
-
+import { blue } from '@material-ui/core/colors';
 
 const drawerWidth = 240;
 
@@ -46,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
     },
     menuItemIcon: {
-        color: '#00cae9',
+        color: '#FFF',
       },
     appBar: {
       zIndex: theme.zIndex.drawer + 1,
@@ -79,6 +61,7 @@ const useStyles = makeStyles((theme: Theme) =>
       width: drawerWidth,
       flexShrink: 0,
       whiteSpace: 'nowrap',
+    
     },
     drawerOpen: {
       width: drawerWidth,
@@ -105,6 +88,15 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(0, 1),
       ...theme.mixins.toolbar,
     },
+    drawerPaper: {
+        position: 'relative',
+        whiteSpace: 'nowrap',
+        width: drawerWidth,
+        paddingTop: theme.spacing(4),
+        paddingBottom: theme.spacing(4),
+        background: '#00009d',
+        color: '#fff',
+      },
     content: {
       flexGrow: 1,
       padding: theme.spacing(3),
@@ -178,12 +170,13 @@ export default function MiniDrawer() {
       >
         <Toolbar>
           <IconButton
-            color="inherit"
+            
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, {
               [classes.hide]: open,
+              [classes.menuItemIcon]: !open,
             })}
           >
             <MenuIcon />
@@ -212,11 +205,14 @@ export default function MiniDrawer() {
         className={clsx(classes.drawer, {
           [classes.drawerOpen]: open,
           [classes.drawerClose]: !open,
+         
         })}
         classes={{
           paper: clsx({
+            [classes.drawerPaper]: !open,
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
+            [classes.menuItemIcon]: !open,
           }),
         }}
       >
@@ -226,17 +222,8 @@ export default function MiniDrawer() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          {/* {['Home', 'Phone', 'Contact', 'About'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 4 === 0 ? <HomeIcon />: <InfoIcon /> : <PhoneIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-
-          ))} */}
-
-      
-            <Phone/>
+        <List >  
+            <Phone />
             <Contact />
             <About />
 

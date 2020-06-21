@@ -78,7 +78,7 @@ export default function CustomizedDialogs() {
     <div>
       <ListItem button onClick={handleClickOpen}>
         <ListItemIcon>
-        <ContactsIcon  />  
+        <ContactsIcon color='secondary' />  
         </ListItemIcon>
         <ListItemText primary="contact" />
       </ListItem>
